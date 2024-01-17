@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -58,7 +58,7 @@ const userSchema = new mongoose.Schema(
     role: {
       type: String,
       required: false,
-      enum: ["user", "dentist", "admin"], // role của user là 1 trong 3 giá trị này
+      enum: ["user", "doctor", "admin"], // role của user là 1 trong 3 giá trị này
       default: "user",
     },
   },
@@ -70,4 +70,4 @@ const userSchema = new mongoose.Schema(
 
 const UserModel = mongoose.model("users", userSchema);
 
-module.exports =  UserModel;
+module.exports = UserModel;
