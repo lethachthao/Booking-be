@@ -9,6 +9,8 @@ const cors = require("cors");
 app.use(cors());
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 mongoose.set("strictQuery", false); // Hoặc true nếu bạn muốn sử dụng tùy chọn strictQuery
 
