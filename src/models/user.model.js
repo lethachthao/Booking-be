@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -11,7 +12,10 @@ const userSchema = new mongoose.Schema(
       required: false,
     },
     avatar: {
-      type: String,
+      type: Schema({
+        filename: { type: String, required: true },
+        path: { type: String, required: true },
+      }),
       required: false,
     },
     phoneNumber: {

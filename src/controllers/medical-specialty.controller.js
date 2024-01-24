@@ -11,15 +11,22 @@ const getMedicalSpecialty = async (req, res, next) => {
 //Tao chuyen khoa
 const createMedicalSpecialty = async (req, res, next) => {
   const { name, description } = req.body;
+  const { filename, path } = req.file;
+  console.log(filename);
 
   const result = await MedicalSpecialtyModel.create({
     name,
     description,
-    members,
+    // members,
+    avatar: {
+      filename,
+      path,
+    },
   });
-  res
-    .status(200)
-    .json({ message: "Tao chuyen khoa thanh cong:", data: result });
+  res.status(200).json({
+    message: "Tạo chuyên khoa thành công!",
+    data: result,
+  });
 };
 
 //Cap nhat chuyen khoa
